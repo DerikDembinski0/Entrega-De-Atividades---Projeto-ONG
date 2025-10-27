@@ -1,0 +1,8 @@
+/*
+Classes utilitárias rápidas (margens, alinhamento, etc)
+*/
+.text-center { text-align:center; }
+.rounded { border-radius:12px; }
+.shadow { box-shadow:0 4px 12px rgba(0,0,0,.1); }
+.mt-2 { margin-top: var(--space-2); }
+.mb-2 { margin-bottom: var(--space-2); }

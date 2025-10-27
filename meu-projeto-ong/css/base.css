@@ -1,0 +1,50 @@
+/*
+Reset CSS mínimo e tipografia global
+Define estilos de body, links, imagens e footer
+*/
+
+/* Reset básico */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo global do corpo da página */
+body {
+background-color: var(--c-branco);
+color: var(--c-azul);
+line-height: 1.6;
+font-size: 16px;
+}
+
+/* Links padronizados */
+a {
+color: var(--c-azul);
+text-decoration: none;
+font-weight: bold; /* Deixa em negrito */
+}
+a:hover {
+color: var(--c-verde); /* Destaque em verde no hover */
+}
+
+/* Reset de imagens */
+img {
+max-width: 100%;   /* Imagem nunca ultrapassa a tela */
+height: auto;
+}
+
+/* Estilo do rodapé */
+footer {
+background: var(--c-azul);
+color: #fff;
+text-align: center;
+padding: 15px;
+margin-top: 40px;
+border-top: 5px solid var(--c-verde); /* Detalhe verde */
+}
+footer p {
+margin: 5px 0;
+font-size: 14px;
+}

@@ -1,0 +1,76 @@
+/*
+Layout principal (header, nav, main, responsividade)
+*/
+
+/* Cabeçalho do site */
+header {
+background: var(--c-azul);
+color: #fff;
+padding: 20px; /* Espaçamento interno */
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 5px solid var(--c-verde);
+}
+header h1 {
+font-size: 24px;
+font-weight: bold;
+}
+
+/* Navegação principal */
+nav ul {
+list-style: none;
+display: flex;
+  gap: 15px; /* Espaçamento entre itens */
+}
+nav a {
+color: #fff;
+padding: 8px 12px;
+}
+
+/* Layout base do conteúdo */
+main {
+max-width: 900px;
+margin: 40px auto;
+padding: 0 20px;
+}
+main p {
+margin-bottom: 20px;
+font-size: 18px;
+}
+main h2 {
+margin-bottom: 15px;
+color: var(--c-azul);
+}
+
+/* Menu de navegação (mobile first) */
+nav ul {
+  flex-direction: column; /* em coluna no celular */
+padding: 0;
+margin: 0;
+}
+nav ul li {
+margin: 8px 0;
+text-align: center;
+}
+nav ul li a {
+color: var(--c-navy);
+font-weight: bold;
+}
+
+/* Breakpoint para tablets */
+@media (min-width: 600px) {
+nav ul {
+flex-direction: row;
+justify-content: center;
+}
+nav ul li { margin: 0 12px; }
+}
+
+/* Breakpoint para desktops */
+@media (min-width: 992px) {
+body { font-size: 18px; }
+nav ul { justify-content: flex-end; }
+header { padding: 20px 40px; }
+main { max-width: 1000px; margin: 0 auto; padding: 20px; }
+}

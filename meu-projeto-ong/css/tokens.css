@@ -1,0 +1,10 @@
+/*  
+Variáveis de cor para facilitar manutenção
+Aqui definimos o esquema de cores da identidade visual da ONG
+*/
+:root {
+  --c-azul: #1f2e4a;   /* Azul escuro para textos e header */
+  --c-amarelo: #ffd55a; /* Amarelo para destaques de fundo */
+  --c-verde: #6dd47e;  /* Verde para botões e detalhes */
+  --c-branco: #f5f0e0; /* Fundo geral suave */
+}
