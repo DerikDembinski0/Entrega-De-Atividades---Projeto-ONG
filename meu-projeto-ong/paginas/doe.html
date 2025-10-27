@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONG Esperança</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/jpeg" href="../imagens/logo.jpg">
+
+<!-- CSS modular ordem correta -->
+<link rel="stylesheet" href="../css/tokens.css">      <!-- Variáveis globais -->
+<link rel="stylesheet" href="../css/base.css">        <!-- Reset + estilos base -->
+<link rel="stylesheet" href="../css/layout.css">      <!-- Estrutura de layout -->
+<link rel="stylesheet" href="../css/components.css">  <!-- Botões, cards, formulários, alerts -->
+<link rel="stylesheet" href="../css/utilities.css">   <!-- Classes utilitárias -->
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <h1>ONG Esperança</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="cadastro.html">Faça Parte</a></li>
+        <li><a href="doe.html">Doe</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <h2>Faça uma Doação</h2>
+    <p>Sua doação ajuda a manter nossos projetos ativos e transformar vidas. Escolha um valor ou digite o valor desejado:</p>
+
+    <!-- Container do formulário -->
+    <section class="form-container">
+      <!-- Título da seção para atender o W3C -->
+      <h3>Formulário de Doação</h3>
+
+      <form>
+        <!-- Nome -->
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <!-- E-mail -->
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Valor da doação -->
+        <label for="valor">Valor da Doação:</label>
+        <select id="valor" name="valor" required>
+          <option value="">Selecione...</option>
+          <option value="50">R$ 50,00</option>
+          <option value="100">R$ 100,00</option>
+          <option value="200">R$ 200,00</option>
+          <option value="500">R$ 500,00</option>
+          <option value="1000">R$ 1000,00</option>
+        </select>
+
+        <!-- Campo livre para valor personalizado -->
+        <label for="valorCustom">Outro valor:</label>
+        <input type="number" id="valorCustom" name="valorCustom" min="1" placeholder="Digite outro valor">
+
+        <!-- Método de pagamento -->
+        <label for="metodo">Método de Pagamento:</label>
+        <select id="metodo" name="metodo" required>
+          <option value="">Selecione...</option>
+          <option value="pix">PIX</option>
+          <option value="cartao">Cartão de Crédito</option>
+          <option value="boleto">Boleto Bancário</option>
+        </select>
+
+        <!-- Botão -->
+        <button type="submit" class="btn-enviar">Doar</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>Contato: contato@ongesperanca.org | Tel: (11) 99999-0000</p>
+    <p>&copy; 2025 ONG Esperança - Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Alerta de agradecimento -->
+  <div id="alerta" class="alerta">
+    <div class="alerta-box">
+      <div class="icon-check">✔️</div>
+      <h3>Obrigado!</h3>
+      <p>Sua doação foi registrada com sucesso. 💚</p>
+      <button class="btn-fechar" onclick="fecharAlerta()">Fechar</button>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
