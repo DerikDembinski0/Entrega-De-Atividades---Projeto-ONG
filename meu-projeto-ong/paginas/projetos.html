@@ -1,76 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ONG Esperança</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONG Esperança - Projetos</title>
 
-<!-- Favicon -->
-<link rel="icon" type="image/jpeg" href="../imagens/logo.jpg">
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../imagens/logo.jpg" />
 
-<!-- CSS modular (ordem correta) -->
-<link rel="stylesheet" href="../css/tokens.css">      <!-- Variáveis globais -->
-<link rel="stylesheet" href="../css/base.css">        <!-- Reset + estilos base -->
-<link rel="stylesheet" href="../css/layout.css">      <!-- Estrutura de layout -->
-<link rel="stylesheet" href="../css/components.css">  <!-- Botões, cards, formulários, alerts -->
-<link rel="stylesheet" href="../css/utilities.css">   <!-- Classes utilitárias -->
+  <!-- CSS modular (ordem correta) -->
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/utilities.css" />
 </head>
 
 <body>
-
-  <!-- Cabeçalho do site -->
+  <!-- Cabeçalho -->
   <header>
     <h1>ONG Esperança</h1>
-    <!-- Menu de navegação -->
-    <nav>
+    <!-- Menu de navegação SPA -->
+    <nav aria-label="Menu principal">
       <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre Nós</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="cadastro.html">Faça Parte</a></li>
-        <li><a href="doe.html">Doe</a></li>
+        <li><a href="#/inicio">Início</a></li>
+        <li><a href="#/sobre">Sobre Nós</a></li>
+        <li><a href="#/projetos">Projetos</a></li>
+        <li><a href="#/facaparte">Faça Parte</a></li>
+        <li><a href="#/doe">Doe</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Conteúdo principal da página -->
-  <main>
-    <!-- Título principal da página -->
-    <h2>Nossos Projetos</h2>
+  <!-- Conteúdo principal será injetado pela SPA -->
+  <main id="app" class="container" aria-live="polite"></main>
 
-    <!-- Projeto 1 -->
-    <section class="projeto">
-      <!-- Imagem do projeto -->
-      <img src="../imagens/projeto1.jpg" alt="Projeto Alimentar">
-      <!-- Nome do projeto -->
-      <h3>Projeto Alimentar</h3>
-      <!-- Descrição curta do projeto -->
-      <p>Distribuição de cestas básicas e refeições quentes para famílias em situação de vulnerabilidade.</p>
-    </section>
-
-    <!-- Projeto 2 -->
-    <section class="projeto">
-      <img src="../imagens/projeto2.jpg" alt="Projeto Educação">
-      <h3>Projeto Educação</h3>
-      <p>Oficinas educativas e reforço escolar para crianças e jovens da comunidade.</p>
-    </section>
-
-    <!-- Projeto 3 -->
-    <section class="projeto">
-      <img src="../imagens/projeto3.jpg" alt="Projeto Saúde">
-      <h3>Projeto Saúde</h3>
-      <p>Atendimentos médicos gratuitos e campanhas de vacinação para comunidades carentes.</p>
-    </section>
-
-  </main>
-
-  <!-- Rodapé da página -->
+  <!-- Rodapé -->
   <footer>
     <p>Contato: contato@ongesperanca.org | Tel: (11) 99999-0000</p>
     <p>&copy; 2025 ONG Esperança - Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Arquivo JavaScript (se precisar usar depois) -->
-  <script src="../js/script.js"></script>
+  <!-- Alerta reutilizado -->
+  <div id="alerta" class="alerta" role="dialog" aria-modal="true" style="display:none">
+    <div class="alerta-box">
+      <div class="icon-check" aria-hidden="true">✔️</div>
+      <h3 id="alerta-title">Obrigado!</h3>
+      <p id="alerta-msg">Mensagem de feedback aqui 💚</p>
+      <button class="btn-fechar" onclick="document.getElementById('alerta').style.display='none'">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Força a rota correta ao abrir direto -->
+  <script>
+    if (!location.hash) location.hash = "#/projetos";
+  </script>
+
+  <!-- JS modular (SPA) -->
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>

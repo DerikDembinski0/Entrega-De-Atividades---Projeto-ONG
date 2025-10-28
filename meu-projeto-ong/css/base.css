@@ -5,46 +5,43 @@ Define estilos de body, links, imagens e footer
 
 /* Reset básico */
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Estilo global do corpo da página */
 body {
-background-color: var(--c-branco);
-color: var(--c-azul);
-line-height: 1.6;
-font-size: 16px;
+  background-color: var(--c-branco);
+  color: var(--c-azul);
+  line-height: 1.6;
+  font-size: var(--fs-md);
 }
 
 /* Links padronizados */
 a {
-color: var(--c-azul);
-text-decoration: none;
-font-weight: bold; /* Deixa em negrito */
+  color: var(--c-azul);
+  text-decoration: none;
+  font-weight: bold; /* Deixa em negrito */
 }
-a:hover {
-color: var(--c-verde); /* Destaque em verde no hover */
-}
-
+a:hover { color: var(--c-verde); } /* Destaque em verde no hover */
+a:focus { outline: 2px solid var(none); outline-offset: 2px; }
 /* Reset de imagens */
 img {
-max-width: 100%;   /* Imagem nunca ultrapassa a tela */
-height: auto;
+  max-width: 80%; /* Iagem nunca ultrapassa a tela */
+  height: auto;
+  display: block;
+  border-radius: 10%;
+  padding-top: 20px;
 }
-
 /* Estilo do rodapé */
 footer {
-background: var(--c-azul);
-color: #fff;
-text-align: center;
-padding: 15px;
-margin-top: 40px;
-border-top: 5px solid var(--c-verde); /* Detalhe verde */
+  background: var(--c-azul);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  border-top: 5px solid var(--c-verde); /* Detalhe verde */
 }
-footer p {
-margin: 5px 0;
-font-size: 14px;
-}
+footer p { margin: 5px 0; font-size: 14px; }

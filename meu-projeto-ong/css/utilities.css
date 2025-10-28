@@ -1,8 +1,14 @@
 /*
 Classes utilitárias rápidas (margens, alinhamento, etc)
 */
-.text-center { text-align:center; }
-.rounded { border-radius:12px; }
-.shadow { box-shadow:0 4px 12px rgba(0,0,0,.1); }
+.text-center { text-align: center; }
+.rounded { border-radius: 12px; }
+.shadow { box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+/* Espaçamentos usando a escala de tokens */
+.mt-1 { margin-top: var(--space-1); }
 .mt-2 { margin-top: var(--space-2); }
+.mb-1 { margin-bottom: var(--space-1); }
 .mb-2 { margin-bottom: var(--space-2); }
+.p-2  { padding: var(--space-2); }
+/* Centralização e largura */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-2); }

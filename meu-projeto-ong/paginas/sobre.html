@@ -1,68 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ONG Esperança</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONG Esperança - Sobre Nós</title>
 
-<!-- Favicon -->
-<link rel="icon" type="image/jpeg" href="../imagens/logo.jpg">
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../imagens/logo.jpg" />
 
-<!-- CSS modular (ordem correta) -->
-<link rel="stylesheet" href="../css/tokens.css">      <!-- Variáveis globais -->
-<link rel="stylesheet" href="../css/base.css">        <!-- Reset + estilos base -->
-<link rel="stylesheet" href="../css/layout.css">      <!-- Estrutura de layout -->
-<link rel="stylesheet" href="../css/components.css">  <!-- Botões, cards, formulários, alerts -->
-<link rel="stylesheet" href="../css/utilities.css">   <!-- Classes utilitárias -->
+  <!-- CSS modular (ordem correta) -->
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/utilities.css" />
 </head>
 
 <body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>ONG Esperança</h1>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="#/inicio">Início</a></li>
+        <li><a href="#/sobre">Sobre Nós</a></li>
+        <li><a href="#/projetos">Projetos</a></li>
+        <li><a href="#/facaparte">Faça Parte</a></li>
+        <li><a href="#/doe">Doe</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <header>
-        <h1>ONG Esperança</h1><!--Criar o cabeçalho onde fica a navegação principal do site-->
-        <nav>
-            <ul>
-              <li><a href="index.html">Início</a></li>
-              <li><a href="sobre.html">Sobre Nós</a></li>
-              <li><a href="projetos.html">Projetos</a></li>
-              <li><a href="cadastro.html">Faça Parte</a></li>
-              <li><a href="doe.html">Doe</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Conteúdo principal será injetado pela SPA -->
+  <main id="app" class="container" aria-live="polite"></main>
 
-    <main>
-  <section class="hero">
-    <div class="hero__text">
-      <h2>Nossa História</h2>
-      <p>A ONG Esperança nasceu em 2010 com o objetivo de apoiar comunidades carentes, levando educação, saúde e alimentação a famílias em situação de vulnerabilidade.</p>
+  <!-- Rodapé -->
+  <footer>
+    <p>Contato: contato@ongesperanca.org | Tel: (11) 99999-0000</p>
+    <p>&copy; 2025 ONG Esperança - Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Alerta reutilizado -->
+  <div id="alerta" class="alerta" role="dialog" aria-modal="true" style="display:none">
+    <div class="alerta-box">
+      <div class="icon-check" aria-hidden="true">✔️</div>
+      <h3 id="alerta-title">Obrigado!</h3>
+      <p id="alerta-msg">Mensagem de feedback 💚</p>
+      <button class="btn-fechar" onclick="document.getElementById('alerta').style.display='none'">Fechar</button>
     </div>
-    <img class="hero__img" src="../imagens/logo.jpg" alt="Logo da ONG Esperança">
-  </section>
+  </div>
 
-  <section>
-    <h2>Missão, Visão e Valores</h2>
-    <p><strong>Missão:</strong> Promover inclusão social por meio de projetos que transformem vidas.</p>
-    <p><strong>Visão:</strong> Ser referência nacional em iniciativas sociais sustentáveis.</p>
-    <p><strong>Valores:</strong> Solidariedade, transparência, respeito e inovação.</p>
-  </section>
+  <!-- Força a rota correta ao abrir direto -->
+  <script>
+    if (!location.hash) location.hash = "#/sobre";
+  </script>
 
-  <section>
-    <h2>Nossa Equipe</h2>
-    <p>Contamos com voluntários e profissionais comprometidos em diferentes áreas, como saúde, educação, administração e assistência social.</p>
-    <img src="../imagens/equipe.jpg" alt="Equipe de voluntários">
-  </section>
-</main>
-
-
-
-    <footer><!--Criando o rodapé do site-->
-        <p>Contato: contato@ongesperanca.org | Tel: (11) 99999-0000</p>
-        <p>&copy; 2025 ONG Esperança</p>
-    </footer>
-
-
-
-    <script src="..//js/script.js"> </script><!--Puxando o js da outra pasta-->
+  <!-- JS modular da SPA -->
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>

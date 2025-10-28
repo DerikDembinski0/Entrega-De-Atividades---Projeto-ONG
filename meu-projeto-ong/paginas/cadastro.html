@@ -1,101 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ONG Esperança</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONG Esperança - Faça Parte</title>
 
-<!-- Favicon -->
-<link rel="icon" type="image/jpeg" href="../imagens/logo.jpg">
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../imagens/logo.jpg" />
 
-<!-- CSS modular (ordem correta) -->
-<link rel="stylesheet" href="../css/tokens.css">      <!-- Variáveis globais -->
-<link rel="stylesheet" href="../css/base.css">        <!-- Reset + estilos base -->
-<link rel="stylesheet" href="../css/layout.css">      <!-- Estrutura de layout -->
-<link rel="stylesheet" href="../css/components.css">  <!-- Botões, cards, formulários, alerts -->
-<link rel="stylesheet" href="../css/utilities.css">   <!-- Classes utilitárias -->
+  <!-- CSS modular (ordem correta) -->
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/utilities.css" />
 </head>
 
 <body>
-
   <!-- Cabeçalho -->
   <header>
     <h1>ONG Esperança</h1>
-    <nav>
+    <nav aria-label="Menu principal">
       <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre Nós</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="cadastro.html">Faça Parte</a></li>
-        <li><a href="doe.html">Doe</a></li>
+        <li><a href="#/inicio">Início</a></li>
+        <li><a href="#/sobre">Sobre Nós</a></li>
+        <li><a href="#/projetos">Projetos</a></li>
+        <li><a href="#/facaparte">Faça Parte</a></li>
+        <li><a href="#/doe">Doe</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Conteúdo principal -->
-  <main>
-    <h2>Faça Parte da Nossa Missão</h2>
-    <p>Preencha o formulário abaixo e escolha um projeto para participar.</p>
-
-    <!-- Container com fundo mais escuro -->
-    <section class="form-container">
-      <!-- Título da seção para atender o W3C -->
-      <h3>Formulário de Cadastro</h3>
-      
-      <form>
-        <!-- Nome -->
-        <label for="nome">Nome Completo:</label>
-        <input type="text" id="nome" name="nome" required>
-
-        <!-- CPF -->
-        <label for="cpf">CPF:</label>
-        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
-
-        <!-- Telefone -->
-        <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
-
-        <!-- Data de nascimento -->
-        <label for="nascimento">Data de Nascimento:</label>
-        <input type="date" id="nascimento" name="nascimento" required>
-
-        <!-- CEP -->
-        <label for="cep">CEP:</label>
-        <input type="text" id="cep" name="cep" placeholder="00000-000" required>
-        <!-- Mensagem de instrução -->
-        <small style="color:#555; display:block; margin-bottom:10px;">
-          Informe apenas o CEP. Cidade e Estado serão preenchidos automaticamente.
-        </small>
-
-        <!-- Cidade preenchida automaticamente -->
-        <label for="cidade">Cidade:</label>
-        <input type="text" id="cidade" name="cidade" readonly required>
-
-        <!-- Estado preenchido automaticamente -->
-        <label for="estado">Estado:</label>
-        <input type="text" id="estado" name="estado" readonly required>
-
-        <!-- Endereço manual -->
-        <label for="endereco">Endereço (Logradouro e Número):</label>
-        <input type="text" id="endereco" name="endereco" required>
-
-        <!-- Dropdown de projetos -->
-        <label for="projeto">Escolha um projeto:</label>
-        <select id="projeto" name="projeto" required>
-          <option value="">Selecione...</option>
-          <option value="alimentar">Projeto Alimentar</option>
-          <option value="educacao">Projeto Educação</option>
-          <option value="saude">Projeto Saúde</option>
-          <option value="moradia">Projeto Moradia</option>
-          <option value="meioambiente">Projeto Meio Ambiente</option>
-          <option value="cultura">Projeto Cultura</option>
-        </select>
-
-        <!-- Botão -->
-        <button type="submit" class="btn-enviar">Enviar</button>
-      </form>
-    </section>
-  </main>
+  <!-- Conteúdo principal renderizado pela SPA -->
+  <main id="app" class="container" aria-live="polite"></main>
 
   <!-- Rodapé -->
   <footer>
@@ -103,16 +40,22 @@
     <p>&copy; 2025 ONG Esperança - Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Caixa de alerta estilizada -->
-  <div id="alerta" class="alerta">
+  <!-- Caixa de alerta estilizada (reutilizada pelos formulários) -->
+  <div id="alerta" class="alerta" role="dialog" aria-modal="true" style="display:none">
     <div class="alerta-box">
-      <div class="icon-check">✔️</div>
-      <h3>Obrigado!</h3>
-      <p>Seu cadastro foi enviado com sucesso. Obrigado por fazer parte da nossa missão! 💚</p>
-      <button class="btn-fechar" onclick="fecharAlerta()">Fechar</button>
+      <div class="icon-check" aria-hidden="true">✔️</div>
+      <h3 id="alerta-title">Obrigado!</h3>
+      <p id="alerta-msg">Seu cadastro foi enviado com sucesso. Obrigado por fazer parte da nossa missão! 💚</p>
+      <button class="btn-fechar" onclick="document.getElementById('alerta').style.display='none'">Fechar</button>
     </div>
   </div>
 
-  <script src="../js/script.js"></script>
+  <!-- Garante que ao abrir este arquivo direto, a SPA carregue a rota correta -->
+  <script>
+    if (!location.hash) location.hash = "#/facaparte";
+  </script>
+
+  <!-- JS modular da SPA -->
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>
