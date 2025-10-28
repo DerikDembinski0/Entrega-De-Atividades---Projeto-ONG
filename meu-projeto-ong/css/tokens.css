@@ -22,4 +22,15 @@ Aqui definimos o esquema de cores da identidade visual da ONG
   --fs-lg: 20px;
   --fs-xl: 28px;
   --fs-xxl: 36px;
+  
+}
+body.high-contrast {
+  --c-azul: #000;
+  --c-branco: #fff;
+  --c-verde: #000;
+}
+
+body.dark {
+  --c-azul: #4b4b4b;
+  --c-branco: #000000;
 }

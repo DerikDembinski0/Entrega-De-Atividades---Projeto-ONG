@@ -10,3 +10,12 @@ import { mountForms } from './forms.js';
 initRouter(templates, (route, root) => {
   mountForms(route, root);
 });
+
+document.getElementById('btn-dark').onclick = () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : '');
+};
+document.getElementById('btn-contrast').onclick = () => {
+  document.body.classList.toggle('high-contrast');
+  localStorage.setItem('theme', document.body.classList.contains('high-contrast') ? 'high-contrast' : '');
+};
